@@ -6,12 +6,18 @@ namespace frontend\components;
 
 use yii\helpers\ArrayHelper;
 
-class SearchService
+class SearchService implements Search
 {
-    private $data = ['pert' => '1', 'Nikolay' => 'Zatonski', 'Alex' => 'Man'];
+    private $repository;
+
+    public function __construct($pero)
+    {
+        $this->repository = $pero;
+    }
 
     public function find($name)/*:?string*/ {
 
-        return ArrayHelper::getValue($this->data, $name);
+        $s = $this->repository->find($name);
+        return mb_strtoupper($s, 'utf-8');
     }
 }
