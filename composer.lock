@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c6852b8cb134942a99bb0786abd8bcfe",
+    "content-hash": "d8e2f36af3276cc77ae3b7cc8c653d20",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -910,12 +910,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "5b679769d55047b5fb3663b0e0af20d1995b84b2"
+                "reference": "bbe014796bc8f76efae352e286c8a88fbc0c3a7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/5b679769d55047b5fb3663b0e0af20d1995b84b2",
-                "reference": "5b679769d55047b5fb3663b0e0af20d1995b84b2",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/bbe014796bc8f76efae352e286c8a88fbc0c3a7e",
+                "reference": "bbe014796bc8f76efae352e286c8a88fbc0c3a7e",
                 "shasum": ""
             },
             "require": {
@@ -1002,7 +1002,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2019-06-18T14:25:51+00:00"
+            "time": "2019-06-19T13:48:20+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -3458,12 +3458,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "7e1a4ec08246d0196310f37de9e52755877d1f55"
+                "reference": "1172dc1abe44dfadd162239153818b074e6e53bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/7e1a4ec08246d0196310f37de9e52755877d1f55",
-                "reference": "7e1a4ec08246d0196310f37de9e52755877d1f55",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/1172dc1abe44dfadd162239153818b074e6e53bf",
+                "reference": "1172dc1abe44dfadd162239153818b074e6e53bf",
                 "shasum": ""
             },
             "require": {
@@ -3506,7 +3506,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-13T10:34:15+00:00"
+            "time": "2019-06-18T21:26:03+00:00"
         },
         {
             "name": "symfony/dom-crawler",
