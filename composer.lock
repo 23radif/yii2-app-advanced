@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d8e2f36af3276cc77ae3b7cc8c653d20",
+    "content-hash": "0cd0d8efb6a6cdfd579a32d9e90ad167",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -227,73 +227,32 @@
             "time": "2018-12-10T09:41:35+00:00"
         },
         {
-            "name": "cebe/yii2-gravatar",
-            "version": "1.1",
-            "target-dir": "cebe/gravatar",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cebe/yii2-gravatar.git",
-                "reference": "c9c01bd14c9bdee9e5ae1ef1aad23f80c182c057"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cebe/yii2-gravatar/zipball/c9c01bd14c9bdee9e5ae1ef1aad23f80c182c057",
-                "reference": "c9c01bd14c9bdee9e5ae1ef1aad23f80c182c057",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-0": {
-                    "cebe\\gravatar\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Carsten Brandt",
-                    "email": "mail@cebe.cc",
-                    "homepage": "http://cebe.cc/",
-                    "role": "Core framework development"
-                }
-            ],
-            "description": "Gravatar Widget for Yii 2",
-            "keywords": [
-                "gravatar",
-                "yii"
-            ],
-            "time": "2013-12-10T17:49:58+00:00"
-        },
-        {
             "name": "dmstr/yii2-adminlte-asset",
-            "version": "2.7.0-beta1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dmstr/yii2-adminlte-asset.git",
-                "reference": "789360570d53c88d446c0193947e269267bfbba8"
+                "reference": "ddaa6acdeefe111e3a742075508ec55806faa338"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dmstr/yii2-adminlte-asset/zipball/789360570d53c88d446c0193947e269267bfbba8",
-                "reference": "789360570d53c88d446c0193947e269267bfbba8",
+                "url": "https://api.github.com/repos/dmstr/yii2-adminlte-asset/zipball/ddaa6acdeefe111e3a742075508ec55806faa338",
+                "reference": "ddaa6acdeefe111e3a742075508ec55806faa338",
                 "shasum": ""
             },
             "require": {
                 "almasaeed2010/adminlte": "^2.4.0",
-                "cebe/yii2-gravatar": "1.*",
-                "rmrevin/yii2-fontawesome": "~3.1",
                 "yiisoft/yii2": "2.*",
                 "yiisoft/yii2-bootstrap": "~2.0.0"
+            },
+            "suggest": {
+                "cebe/yii2-gravatar": "Display user icons",
+                "rmrevin/yii2-fontawesome": "Font icons"
             },
             "type": "yii2-extension",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "3.x-dev"
                 }
             },
             "autoload": {
@@ -327,7 +286,7 @@
                 "theme",
                 "yii2"
             ],
-            "time": "2018-08-27T07:20:52+00:00"
+            "time": "2018-12-07T13:48:26+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -391,16 +350,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.8",
+            "version": "2.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "c26463ff9241f27907112fbcd0c86fa670cfef98"
+                "reference": "128cc721d771ec2c46ce59698f4ca42b73f71b25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/c26463ff9241f27907112fbcd0c86fa670cfef98",
-                "reference": "c26463ff9241f27907112fbcd0c86fa670cfef98",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/128cc721d771ec2c46ce59698f4ca42b73f71b25",
+                "reference": "128cc721d771ec2c46ce59698f4ca42b73f71b25",
                 "shasum": ""
             },
             "require": {
@@ -444,7 +403,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2019-05-16T22:02:54+00:00"
+            "time": "2019-06-23T10:14:27+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -550,62 +509,6 @@
                 "image processing"
             ],
             "time": "2019-06-03T15:06:06+00:00"
-        },
-        {
-            "name": "rmrevin/yii2-fontawesome",
-            "version": "3.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rmrevin/yii2-fontawesome.git",
-                "reference": "a1b448cef7e03a0b5a6286276bef004efa83f323"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rmrevin/yii2-fontawesome/zipball/a1b448cef7e03a0b5a6286276bef004efa83f323",
-                "reference": "a1b448cef7e03a0b5a6286276bef004efa83f323",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "yiisoft/yii2": "^2.0.0"
-            },
-            "require-dev": {
-                "doctrine/instantiator": "1.0.*",
-                "phpdocumentor/reflection-docblock": "~3.1.0",
-                "phpunit/phpunit": "^4.8"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "asset-installer-paths": {
-                    "npm-asset-library": "vendor/npm",
-                    "bower-asset-library": "vendor/bower"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "rmrevin\\yii\\fontawesome\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Revin Roman",
-                    "email": "roman@rmrevin.com",
-                    "homepage": "https://rmrevin.com/"
-                }
-            ],
-            "description": "Asset Bundle for Yii2 with Font Awesome",
-            "keywords": [
-                "asset",
-                "awesome",
-                "bundle",
-                "font",
-                "yii"
-            ],
-            "time": "2018-04-01T12:51:52+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -910,12 +813,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "bbe014796bc8f76efae352e286c8a88fbc0c3a7e"
+                "reference": "aa8568211d630e39f663c93e88f896a19a14feba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/bbe014796bc8f76efae352e286c8a88fbc0c3a7e",
-                "reference": "bbe014796bc8f76efae352e286c8a88fbc0c3a7e",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/aa8568211d630e39f663c93e88f896a19a14feba",
+                "reference": "aa8568211d630e39f663c93e88f896a19a14feba",
                 "shasum": ""
             },
             "require": {
@@ -1002,7 +905,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2019-06-19T13:48:20+00:00"
+            "time": "2019-06-25T08:24:32+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
