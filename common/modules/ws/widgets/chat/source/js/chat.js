@@ -1,6 +1,6 @@
 "use strict";
 
-var conn = new WebSocket('ws://95.183.8.118:9090');
+var conn = new WebSocket('ws://localhost:9090');
 conn.onopen = function(e) {
     console.log("Connection established!");
 
