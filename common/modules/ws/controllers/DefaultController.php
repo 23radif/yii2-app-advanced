@@ -27,10 +27,10 @@ class DefaultController extends \yii\console\Controller
             9090
         );
 
-        echo 'starting server' . PHP_EOL;
+        echo 'starting server'.PHP_EOL;
 
         $server->run();
 
-        echo 'stop server' . PHP_EOL;
+        echo 'stop server'.PHP_EOL;
     }
 }

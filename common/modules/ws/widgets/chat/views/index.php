@@ -1,10 +1,8 @@
 <?php
 
+\common\modules\ws\widgets\chat\ChatAsset::register($this);
 ?>
-
-<!-- Messages: style can be found in dropdown.less-->
 <li class="dropdown messages-menu">
-    <!-- Menu toggle button -->
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <i class="fa fa-envelope-o"></i>
         <span class="label label-success">4</span>
@@ -12,26 +10,75 @@
     <ul class="dropdown-menu">
         <li class="header">You have 4 messages</li>
         <li>
-            <!-- inner menu: contains the messages -->
+            <!-- inner menu: contains the actual data -->
             <ul class="menu">
                 <li><!-- start message -->
                     <a href="#">
                         <div class="pull-left">
-                            <!-- User Image -->
-                            <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle"
+                                 alt="User Image"/>
                         </div>
-                        <!-- Message title and timestamp -->
                         <h4>
                             Support Team
                             <small><i class="fa fa-clock-o"></i> 5 mins</small>
                         </h4>
-                        <!-- The message -->
                         <p>Why not buy a new awesome theme?</p>
                     </a>
                 </li>
                 <!-- end message -->
+                <li>
+                    <a href="#">
+                        <div class="pull-left">
+                            <img src="<?= $directoryAsset ?>/img/user3-128x128.jpg" class="img-circle"
+                                 alt="user image"/>
+                        </div>
+                        <h4>
+                            AdminLTE Design Team
+                            <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                        </h4>
+                        <p>Why not buy a new awesome theme?</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pull-left">
+                            <img src="<?= $directoryAsset ?>/img/user4-128x128.jpg" class="img-circle"
+                                 alt="user image"/>
+                        </div>
+                        <h4>
+                            Developers
+                            <small><i class="fa fa-clock-o"></i> Today</small>
+                        </h4>
+                        <p>Why not buy a new awesome theme?</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pull-left">
+                            <img src="<?= $directoryAsset ?>/img/user3-128x128.jpg" class="img-circle"
+                                 alt="user image"/>
+                        </div>
+                        <h4>
+                            Sales Department
+                            <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                        </h4>
+                        <p>Why not buy a new awesome theme?</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pull-left">
+                            <img src="<?= $directoryAsset ?>/img/user4-128x128.jpg" class="img-circle"
+                                 alt="user image"/>
+                        </div>
+                        <h4>
+                            Reviewers
+                            <small><i class="fa fa-clock-o"></i> 2 days</small>
+                        </h4>
+                        <p>Why not buy a new awesome theme?</p>
+                    </a>
+                </li>
             </ul>
-            <!-- /.menu -->
         </li>
         <li class="footer"><a href="#">See All Messages</a></li>
     </ul>

@@ -1,14 +1,13 @@
 <?php
 
-
 namespace common\modules\ws\component;
-
 
 use Ratchet\ConnectionInterface;
 use Ratchet\MessageComponentInterface;
 use yii\base\Component;
 
-class Chat extends Component implements MessageComponentInterface {
+class Chat extends Component implements MessageComponentInterface
+{
     protected $clients;
 
     public function __construct() {
