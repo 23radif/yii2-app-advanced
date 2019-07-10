@@ -1,6 +1,8 @@
 <?php
+
 namespace common\models;
 
+use frontend\models\Task;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -21,6 +23,8 @@ use yii\web\IdentityInterface;
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
+ *
+ * @property \frontend\models\tables\Task[] $tasks
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -60,6 +64,22 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
 
+    function fields()
+    {
+        return [
+            'username', 'email', 'status' => function ($model) {
+                return $model->status == 10 ? 'Активен' : 'Не Активен';
+            },
+//            'tasks'
+        ];
+    }
+
+    public function extraFields()
+    {
+//        http://y2aa-frontend.test/api/user/1?expand=tasks пример ссылки для вывода тасков пользователя
+        return ['tasks'];
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -73,7 +93,8 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
+        return static::find()->andWhere(['verification_token' => $token])->one();
+//        throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
     }
 
     /**
@@ -111,7 +132,8 @@ class User extends ActiveRecord implements IdentityInterface
      * @param string $token verify email token
      * @return static|null
      */
-    public static function findByVerificationToken($token) {
+    public static function findByVerificationToken($token)
+    {
         return static::findOne([
             'verification_token' => $token,
             'status' => self::STATUS_INACTIVE
@@ -130,7 +152,7 @@ class User extends ActiveRecord implements IdentityInterface
             return false;
         }
 
-        $timestamp = (int) substr($token, strrpos($token, '_') + 1);
+        $timestamp = (int)substr($token, strrpos($token, '_') + 1);
         $expire = Yii::$app->params['user.passwordResetTokenExpire'];
         return $timestamp + $expire >= time();
     }
@@ -207,5 +229,9 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    public function getTasks(){
+        return $this->hasMany(\frontend\models\tables\Task::class, ['creator_id' => 'id']);
     }
 }

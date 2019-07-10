@@ -63,7 +63,9 @@ return [
         'user' => [
 //            'identityClass' => \app\models\UserIdentity::class, из yii2 base
             'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
+//            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
+            'enableSession' => false,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
         'session' => [
@@ -88,6 +90,8 @@ return [
             'showScriptName' => false,
             'rules' => [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/user',
+                    'pluralize' => false],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/task',
                     'pluralize' => false],
 //                'task/<page>/<per-page>' => 'task/index',
 //                'tasks' => 'task/index',

@@ -62,4 +62,9 @@ class TaskStatuses extends \yii\db\ActiveRecord
             ->indexBy('id')
             ->all(), 'id', 'name');
     }
+
+    public function fields()
+    {
+        return ['name'];
+    }
 }

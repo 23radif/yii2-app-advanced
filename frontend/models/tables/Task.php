@@ -148,4 +148,11 @@ class Task extends \yii\db\ActiveRecord
             ],
         ];
     }
+
+    public function fields()
+    {
+        return ['name', 'description', 'deadline', 'status' => function($model){
+            return $model->status->name;
+        }];
+    }
 }
