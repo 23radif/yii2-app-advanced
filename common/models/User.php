@@ -32,6 +32,11 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_INACTIVE = 9;
     const STATUS_ACTIVE = 10;
 
+    const STATUSES_LABEL = [
+        self::STATUS_ACTIVE => 'Активен',
+        self::STATUS_INACTIVE => 'Заблокирован',
+        self::STATUS_DELETED => 'Удален'
+    ];
 
     /**
      * {@inheritdoc}

@@ -20,6 +20,7 @@ return [
                 ],
             ],
         ],
+        'profile' => \backend\components\ProfileComponent::class,
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
