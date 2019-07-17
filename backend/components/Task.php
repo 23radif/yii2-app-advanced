@@ -5,6 +5,8 @@ namespace backend\components;
 
 
 use backend\share\RepositoryTask;
+use yii\base\Event;
+use yii\log\Logger;
 
 class Task implements TaskService
 {
@@ -23,6 +25,13 @@ class Task implements TaskService
      */
     public function save(\common\models\Task &$task): bool
     {
+        $task->on(\common\models\Task::EVENT_SAVE,function (Event $event){
+            $task=$event->sender;
+            \Yii::getLogger()->log('event object save '.$task->title,Logger::LEVEL_WARNING);
+        });
+
+        $task->on(\common\models\Task::EVENT_SAVE,[$task,'event_save']);
+
         if (!$task->validate()) {
             return false;
         }
@@ -30,6 +39,13 @@ class Task implements TaskService
         if (!$this->repository->create($task)) {
             return false;
         }
+        
+
+//        $task->off(\common\models\Task::EVENT_SAVE);
+//        Event::off(\common\models\Task::class,\common\models\Task::EVENT_SAVE);
+//        Event::trigger(\common\models\Task::class,\common\models\Task::EVENT_SAVE);
+        $task->trigger(\common\models\Task::EVENT_SAVE);
+        $task->trigger(SaveTaskEventInterface::TASK_SAVE);
 
         return true;
     }
