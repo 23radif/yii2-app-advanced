@@ -65,7 +65,7 @@ return [
             'identityClass' => 'common\models\User',
 //            'enableAutoLogin' => true,
             'enableAutoLogin' => false,
-            'enableSession' => false,
+            'enableSession' => true,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
         'session' => [
