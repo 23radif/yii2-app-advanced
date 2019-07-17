@@ -23,6 +23,9 @@ return [
             \backend\share\RepositoryTask::class=>[
                 ['class'=>\backend\components\TaskRepositoryMysql::class],
                 [\yii\di\Instance::of('db')]
+            ],
+            \Symfony\Component\EventDispatcher\EventDispatcherInterface::class=>[
+                'class'=>\Symfony\Component\EventDispatcher\EventDispatcher::class
             ]
         ],
         'definitions'=>[

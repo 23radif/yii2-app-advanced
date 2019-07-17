@@ -5,7 +5,9 @@ namespace backend\config;
 
 
 use backend\components\SaveTaskEventInterface;
+use backend\subscribers\SaveTaskSubscriber;
 use common\models\Task;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use yii\base\Application;
 use yii\base\BootstrapInterface;
 use yii\base\Event;
@@ -33,8 +35,12 @@ class PreConfig implements BootstrapInterface
             \Yii::warning('event CLASS save '.$task->title);
         });
 
+/** @var EventDispatcherInterface $event_dispatcher */
+        $event_dispatcher=\Yii::$container->get(EventDispatcherInterface::class);
 
+        $subcriber= \Yii::$container->get(SaveTaskSubscriber::class);
 
+        $event_dispatcher->addSubscriber($subcriber);
 
     }
 }
