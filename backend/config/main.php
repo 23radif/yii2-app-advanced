@@ -20,7 +20,9 @@ return [
                 ],
             ],
         ],
-        'profile' => \backend\components\ProfileComponent::class,
+        'profile' => [
+            'class' => \backend\components\ProfileComponent::class,
+            'repository' => new \backend\components\ProfileRepositoryMysql()],
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
