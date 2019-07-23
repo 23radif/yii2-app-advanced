@@ -10,8 +10,31 @@ return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log',\backend\config\PreConfig::class],
     'modules' => [],
+    'container'=>[
+        'singletons'=>[
+            \backend\components\TaskService::class=>[
+                'class'=>\backend\components\Task::class
+            ],
+            'db'=>function(){
+                return Yii::$app->db;
+            },
+            \backend\share\RepositoryTask::class=>[
+                ['class'=>\backend\components\TaskRepositoryMysql::class],
+                [\yii\di\Instance::of('db')]
+            ],
+            \Symfony\Component\EventDispatcher\EventDispatcherInterface::class=>[
+                'class'=>\Symfony\Component\EventDispatcher\EventDispatcher::class
+            ]
+        ],
+        'definitions'=>[
+            'user'=>['class'=>\common\models\User::class],
+            \yii\web\IdentityInterface::class=>[
+                'class'=>'user'
+            ]
+        ]
+    ],
     'components' => [
         'view' => [
             'theme' => [
@@ -20,7 +43,9 @@ return [
                 ],
             ],
         ],
-        'profile' => \backend\components\ProfileComponent::class,
+        'profile' => [
+            'class' => \backend\components\ProfileComponent::class,
+            'repository' => new \backend\components\ProfileRepositoryMysql()],
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],

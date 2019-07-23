@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
+    <?php \yii\widgets\Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
@@ -28,18 +29,25 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'username',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
-            //'email:email',
-            //'status',
-            //'created_at',
-            //'updated_at',
+//            'auth_key',
+//            'password_hash',
+//            'password_reset_token',
+            'email:email',
+            [
+                'attribute' => 'status',
+                'filter' => \common\models\User::STATUSES_LABEL,
+                'value' => function (\common\models\User $model) {
+                    return $model::STATUSES_LABEL[$model->status];
+                }
+            ],
+            'created_at',
+            'updated_at',
             //'verification_token',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 
+    <?php \yii\widgets\Pjax::end(); ?>
 
 </div>

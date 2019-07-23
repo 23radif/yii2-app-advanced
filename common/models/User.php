@@ -3,6 +3,7 @@
 namespace common\models;
 
 use frontend\models\Task;
+use mohorev\file\UploadImageBehavior;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -38,6 +39,17 @@ class User extends ActiveRecord implements IdentityInterface
         self::STATUS_DELETED => 'Удален'
     ];
 
+    const SCENARIO_EDIT = 'edit';
+
+    public $avatar;
+
+    public function scenarios()
+    {
+        return array_merge([
+            self::SCENARIO_EDIT => ['avatar']],
+        parent::scenarios());
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -52,6 +64,17 @@ class User extends ActiveRecord implements IdentityInterface
     public function behaviors()
     {
         return [
+            [
+                'class' => UploadImageBehavior::class,
+                'attribute' => 'avatar',
+                'scenarios' => [self::SCENARIO_EDIT],
+                'path' => Yii::getAlias('@frontend/web/upload/user/{id}'),
+                'url' => Yii::$app->params['avatar.domain'] . '/upload/user/{id}',
+                'thumbs' => [
+                    'thumb' => ['width' => 600, 'quality' => 100],
+                    'preview' => ['width' => 100, 'height' => 100]
+                ]
+            ],
             TimestampBehavior::className(),
         ];
     }
@@ -63,6 +86,8 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             ['username', 'unique'],
+            ['avatar', 'string'],
+            ['avatar', 'image', 'extensions' => 'jpg, jpeg, png', 'on' => self::SCENARIO_EDIT],
             [['username', 'email', 'password_hash', 'auth_key'], 'string'],
             ['status', 'default', 'value' => self::STATUS_INACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
@@ -90,7 +115,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentity($id)
     {
-        return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
+        return self::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**
@@ -110,7 +135,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findByUsername($username)
     {
-        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+        return self::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**
@@ -236,7 +261,8 @@ class User extends ActiveRecord implements IdentityInterface
         $this->password_reset_token = null;
     }
 
-    public function getTasks(){
+    public function getTasks()
+    {
         return $this->hasMany(\frontend\models\tables\Task::class, ['creator_id' => 'id']);
     }
 }
