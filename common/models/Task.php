@@ -3,11 +3,13 @@ declare(strict_types=1);
 
 namespace common\models;
 
+use backend\components\SaveTaskEventInterface;
 use frontend\validators\StatusValidate;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
+use yii\log\Logger;
 
-class Task extends Model
+class Task extends Model implements SaveTaskEventInterface
 {
     private $title;
     private $description;
@@ -18,6 +20,8 @@ class Task extends Model
     /** @var integer */
     private $responsible;
     private $status;
+
+    const EVENT_SAVE='task_save';
 
     /**
      * Task constructor.
@@ -41,6 +45,10 @@ class Task extends Model
         return new self('', '', 0, 0, 0);
     }
 
+    public function event_save(){
+        \Yii::getLogger()->log('event object save in class',Logger::LEVEL_WARNING);
+    }
+
     /**
      * @return mixed
      */
@@ -61,13 +69,16 @@ class Task extends Model
      */
     public static function fromRequestParams(array $params): self
     {
-        return new self(
+        $task= new self(
             ArrayHelper::getValue($params, 'title'),
             ArrayHelper::getValue($params, 'description'),
             (int)ArrayHelper::getValue($params, 'author'),
             (int)ArrayHelper::getValue($params, 'responsible'),
             (int)ArrayHelper::getValue($params, 'status')
         );
+
+
+        return $task;
     }
 
     public static function fromDb(array $params): self

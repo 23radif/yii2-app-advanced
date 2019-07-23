@@ -17,7 +17,7 @@ class CreateAction extends Action
     /** @var TaskService */
     private $service;
 
-    public function __construct($id, $controller, Task $service, $config = [])
+    public function __construct($id, $controller, TaskService $service, $config = [])
     {
         $this->service=$service;
         parent::__construct($id, $controller, $config);
@@ -29,7 +29,7 @@ class CreateAction extends Action
             $task = Task::fromRequestParams(\Yii::$app->request->post('Task', []));
 
             if ($this->service->save($task)) {
-                return $this->controller->redirect(['/']);
+//                return $this->controller->redirect(['/']);
             }
         } else {
             $task = Task::creatEmptyTask();

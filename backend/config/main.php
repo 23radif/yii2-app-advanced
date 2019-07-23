@@ -10,7 +10,7 @@ return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log',\backend\config\PreConfig::class],
     'modules' => [],
     'container'=>[
         'singletons'=>[
@@ -23,6 +23,9 @@ return [
             \backend\share\RepositoryTask::class=>[
                 ['class'=>\backend\components\TaskRepositoryMysql::class],
                 [\yii\di\Instance::of('db')]
+            ],
+            \Symfony\Component\EventDispatcher\EventDispatcherInterface::class=>[
+                'class'=>\Symfony\Component\EventDispatcher\EventDispatcher::class
             ]
         ],
         'definitions'=>[
